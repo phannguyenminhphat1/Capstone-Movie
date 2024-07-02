@@ -13,8 +13,8 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=mysql://root:1234@mysql_db:3306/db_capstone_movie
-      - ACCESS_TOKEN_SECRET=movie@!@_movie@1234
-      - REFRESH_TOKEN_SECRET=movie_capstone@!minhphat@1234
+      - ACCESS_TOKEN_SECRET_KEY=movie@!@_movie@1234
+      - REFRESH_TOKEN_SECRET_KEY=movie_capstone@!minhphat@1234
       - ACCESS_TOKEN_EXPIRES_DATE=1h
       - REFRESH_TOKEN_EXPIRES_DATE=7d
       - CLOUDINARY_NAME=dy2bmisbi
