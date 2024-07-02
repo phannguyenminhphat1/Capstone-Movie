@@ -1,49 +1,32 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from 'src/models/jwt-payload.interface';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { Injectable } from '@nestjs/common';
+import { JwtService, JwtSignOptions, JwtVerifyOptions } from '@nestjs/jwt';
+import { TokenPayload } from 'src/models/TokenPayload';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private prisma: PrismaService,
-    private jwtService: JwtService,
-    private config: ConfigService,
-  ) {}
+  constructor(private jwtService: JwtService) {}
 
-  signToken({ payload }: { payload: object }): string {
-    return this.jwtService.sign(
-      { data: { payload } },
-      {
-        algorithm: 'HS256',
-        expiresIn: this.config.get('TOKEN_EXPIRES_DATE'),
-        secret: this.config.get('SECRET_KEY'),
-      },
-    );
+  signToken({
+    payload,
+    options,
+  }: {
+    payload: object | Buffer;
+    options: JwtSignOptions;
+  }): string {
+    return this.jwtService.sign(payload, options);
   }
 
-  verifyToken(token: string): JwtPayload {
-    return this.jwtService.verify(token);
+  verifyToken({
+    token,
+    options,
+  }: {
+    token: string;
+    options?: JwtVerifyOptions;
+  }) {
+    return this.jwtService.verify(token, options);
   }
 
-  decodeToken(token: string): JwtPayload {
-    return this.jwtService.decode(token);
-  }
-
-  extractTokenFromHeader(authorization: string): string {
-    if (!authorization) {
-      throw new HttpException(
-        'Authorization header is missing',
-        HttpStatus.UNAUTHORIZED,
-      );
-    }
-    if (!authorization.startsWith('Bearer ')) {
-      throw new HttpException(
-        'Invalid authorization header format',
-        HttpStatus.UNAUTHORIZED,
-      );
-    }
-    return authorization.split(' ')[1];
+  decodeToken(token: string): TokenPayload {
+    return this.jwtService.decode(token) as TokenPayload;
   }
 }

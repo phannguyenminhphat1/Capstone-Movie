@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { USERS_MESSAGES } from 'src/constants/messages';
+import { TokenPayload } from 'src/models/TokenPayload';
 import { ForbiddenException } from 'src/utils/exceptions/forbidden.exception';
 
 @Injectable()
@@ -16,11 +17,8 @@ export class RolesGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const { user } = context.switchToHttp().getRequest();
-    const {
-      data: {
-        payload: { ma_loai_nguoi_dung },
-      },
-    } = user;
+    const { ma_loai_nguoi_dung } = user as TokenPayload;
+
     if (ma_loai_nguoi_dung === 'KhachHang') {
       throw new ForbiddenException(
         USERS_MESSAGES.USER_DOES_NOT_HAVE_PERMISSIONS,

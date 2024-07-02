@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql_db
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=mysql://root:1234@mysql_db:3306/db_capstone_movie
+      - ACCESS_TOKEN_SECRET=movie@!@_movie@1234
+      - REFRESH_TOKEN_SECRET=movie_capstone@!minhphat@1234
+      - ACCESS_TOKEN_EXPIRES_DATE=1h
+      - REFRESH_TOKEN_EXPIRES_DATE=7d
+      - CLOUDINARY_NAME=dy2bmisbi
+      - CLOUDINARY_API_KEY=857759662656698
+      - CLOUDINARY_API_SECRET=nMqRkQVYntGhSoHILzjJLP19UeHU
+      - CLOUDINARY_DEFAULT_AVATAR=https://res.cloudinary.com/dy2bmisbi/image/upload/v1716211691/default-avatar.jpg
+      - EMAIL_CAPSTONE=capstone-movie@gmail.com
+      - EMAIL=phanguyenminhphat10@gmail.com
+      - PASS=iduyqcixwgpsrfcff
+      - ROLE_GUEST=KhachHang
+      - ROLE_ADMIN=QuanTri
+
+  mysql_db:
+    image: mysql
+    container_name: mysql_db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: db_capstone_movie
+
+volumes:
+  mysql_db:
+    driver: local

@@ -7,13 +7,14 @@ export const USERS_MESSAGES = {
   LOGOUT_SUCCESS: 'Logout success',
   PASSWORD_IS_REQUIRED: 'Password is required',
   PASSWORD_LENGTH:
-    'Password must be at least 4 characters and not exceed 16 long',
+    'Password must be at least 4 characters and not exceed 25 long',
   PASSWORD_MUST_BE_STRONG:
     'Password must contain at least one uppercase letter, one lowercase letter, and one special character or number',
+  PASSWORD_MUST_BE_A_STRING: 'Password must be a string',
   LOGIN_SUCCESS: 'Login success',
   USERNAME_INVALID:
     'Username must be 4-15 characters long and contain only letters, numbers, underscores, not only numbers',
-  USERS_NOT_FOUND: 'Users not found !',
+  USER_NOT_FOUND: 'User not found !',
   USERNAME_MUST_BE_STRING: 'Username must be a string',
   REGISTER_SUCCESS: 'Register success',
   UPLOAD_SUCCESS: 'Upload success',
@@ -32,11 +33,138 @@ export const USERS_MESSAGES = {
   ACCOUNT_NAME_IS_REQUIRED: 'Account name is required',
   ACCOUNT_NAME_LENGTH: 'Account name must be from 4 to 20',
   ACCOUNT_IS_ALREADY_EXIST: 'Account is already exist!',
+  ACCOUNT_MUST_BE_A_STRING: 'Account must be a string',
   USER_ROLE_IS_REQUIRED: 'User role is required',
   USER_ROLE_IS_INVALID: 'User role is invalid',
   CREATE_NEW_USER_SUCCESS: 'Create new user success',
   UPDATE_ME_SUCCESS: 'Update me success',
+  UPDATE_USER_SUCCESS: 'Update user success',
   AVATAR_IS_VALID: 'Avatar must be a valid image URL',
   AVATAR_IS_REQUIRED: 'Avatar is required',
   AVATAR_MUST_BE_A_STRING: 'Avatar must be a string',
+  ERROR_WHILE_COMPRESSING_IMAGES: 'Error while compressing images',
+  SEARCH_KEY_MUST_BE_A_STRING: 'Search key must be a string',
+  PAGE_MUST_BE_A_NUMBER: 'Page must be a number',
+  LIMIT_MUST_BE_A_NUMBER: 'Limit must be a number',
+  REFRESH_TOKEN_IS_REQUIRED: 'Refresh token is required',
+  USED_REFRESH_TOKEN_OR_NOT_EXIST: 'Used refresh token or not exist',
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required',
+  DELETE_USER_SUCCESS: 'Delete user success',
+  USER_HAS_BEEN_DELETED: 'User has been deleted',
+  DELETED_IS_REQUIRED: 'Deleted is required',
+  DELETED_IS_INVALID: 'Deleted status is invalid',
+  AVATAR_URL_MUST_BE_A_STRING: 'Avatar url must be a string',
+  REFRESH_TOKEN_SUCCESS: 'Refresh token success',
+  RESET_PASSWORD_CODE_SEND_TO_YOUR_EMAIL:
+    'Reset password code has been sent to your email',
+  RESET_PASSWORD_MAIL: 'Reset password mail',
+  RESET_PASSWORD_CODE: 'Reset password code',
+  CODE_IS_INVALID: 'Code is invalid',
+  VERIFY_CODE_SUCCESS: 'Verify code success',
+  FORGOT_CODE_MUST_BE_A_STRING: 'Forgot password code must be a string',
+  FORGOT_CODE_IS_REQUIRED: 'Forgot password code is required',
+  CODE_IS_EXPIRED: 'Code is expired',
+  EMAIL_NOT_FOUND: 'Email not found',
+  ACCOUNT_NOT_FOUND: 'Account not found',
+  YOUR_NEW_PASSWORD_HAS_BEEN_UPDATE: 'Your new password has been update',
+  EMAIL_MUST_BE_A_STRING: 'Email must be a string',
+  PHONE_MUST_BE_A_STRING: 'Phone must be a string',
+  REFRESH_TOKEN_MUST_BE_A_STRING: 'Refresh token must be a string',
+} as const;
+
+export const MOVIES_MESSAGES = {
+  GET_ALL_BANNERS_SUCCESS: 'Get all banners success',
+  GET_ALL_MOVIES_SUCCESS: 'Get all movies success',
+  PAGE_MUST_BE_A_NUMBER: 'Page must be a number',
+  LIMIT_MUST_BE_A_NUMBER: 'Limit must be a number',
+  RELEASE_DATE_MUST_BE_A_DATE: 'Release date must be a date',
+  RELEASE_DATE_IS_REQUIRED: 'Release date is required',
+  TRAILER_MUST_BE_A_STRING: 'Trailer must be a string',
+  TRAILER_IS_REQUIRED: 'Trailer is required',
+  DESC_MUST_BE_A_STRING: 'Description must be a string',
+  DESC_IS_REQUIRED: 'Description is required',
+  DESC_LENGTH_MUST_BE_FROM_5_TO_150:
+    'Description length must be from 5 to 150 characters',
+  RATE_LENGTH_MUST_BE_FROM_1_TO_5: 'Rate length must be from 1 to 5',
+  RATE_MUST_BE_A_NUMBER: 'Rate must be a number',
+  HOT_IS_INVALID: 'Hot status is invalid',
+  COMMING_SOON_IS_INVALID: 'Coming soon status is invalid',
+  SHOWING_NOW_IS_INVALID: 'Showing now status is invalid',
+  IMAGE_IS_REQUIRED: 'Image is required',
+  IMAGE_IS_VALID: 'Image must be a valid image URL',
+  NAME_IS_ALREADY_EXIST: 'Name is already exist !',
+  RATE_LENGTH_MUST_BE_FROM_0_TO_5: 'Rate must be from 0 to 5',
+  CREATE_MOVIE_SUCCESS: 'Movie created successfully',
+  DATE_MUST_BE_VALID: 'Date must be valid',
+  MOVIE_NOT_FOUND: 'Movie not found !',
+  GET_MOVIE_SUCCESS: 'Get movie success',
+  MOVIE_ID_IS_REQUIRED: 'Movie id is required',
+  DELETED_IS_INVALID: 'Deleted is invalid',
+  IMAGE_URL_MUST_BE_A_STRING: 'Image url must be a string',
+  UPDATE_MOVIE_SUCCESS: 'Update movie success',
+  DELETE_MOVIE_SUCCESS: 'Delete movie success',
+} as const;
+
+export const THEATER_MESSAGES = {
+  GET_THEATER_SYSTEMS_SUCCESS: 'Get theater systems success',
+  GET_THEATER_COMPLEXS_SUCCESS: 'Get theater complexs success',
+  THEATER_SYSTEM_ID_NOT_FOUND: 'Theater system ID not found',
+  MOVIE_ID_MUST_BE_A_NUMBER: 'Movie ID must be a number',
+  MOVIE_ID_IS_REQUIRED: 'Movie ID is required',
+  MOVIE_THEATER_ID_MUST_BE_A_NUMBER: 'Movie theater ID must be a number',
+  MOVIE_THEATER_ID_IS_REQUIRED: 'Movie theater ID is required',
+  MOVIE_SHOWTIMES_MUST_BE_A_DATE_TIME:
+    'Movie showtimes must be a valid date time',
+  MOVIE_SHOWTIMES_IS_REQUIRED: 'Movie showtimes is required',
+  TICKET_PRICE_MUST_BE_A_NUMBER: 'Ticket price must be a number',
+  TICKET_PRICE_IS_REQUIRED: 'Ticket price is required',
+  MOVIE_THEATER_NOT_FOUND: 'Movie theater not found',
+  MIN_TICKET_PRICE: 'The lowest ticket price is 1000',
+  CREATE_SHOWTIMES_SUCCESS: 'Create showtimes success',
+  GET_SHOWTIMES_BY_THEATER_SYTEMS_SUCCESS:
+    'Get showtimes by theater systems success',
+  THEATER_SYSTEM_ID_IS_REQUIRED: 'Theater system id is required',
+  MOVIE_HAS_NO_SHOWTIMES: 'The movie currently has no showtimes',
+  MOVIE_NOT_FOUND: 'Movie not found',
+  GET_SHOWTIMES_BY_MOVIE_SUCCESS: 'Get showtimes by movie success',
+  INVALID_SHOWTIME: 'Showtimes on the same day must be at least 3 hours apart',
+} as const;
+
+export const TICKETS_MESSAGES = {
+  GET_SHOWTIME_TICKETS_SUCCESS: 'Get the list of showtime tickets success',
+  SHOWTIME_NOT_FOUND: 'Showtime not found',
+  SHOWTIME_ID_IS_REQUIRED: 'Showtime ID is required',
+  SEAT_ID_IS_REQUIRED: 'Seat ID is required',
+  SHOWTIME_ID_MUST_BE_A_NUMBER: 'Showtime ID must be a number',
+  SEAT_ID_MUST_BE_A_NUMBER: 'Seat ID must be a number',
+  SEATS_LIST_IS_REQUIRED: 'Seats list is required',
+  SEATS_MUST_BE_AN_ARRAY: 'Seats must be an array',
+  SEAT_NOT_FOUND: 'Seat not found',
+  BOOKING_TICKETS_SUCCESS: 'Booking tickets success',
+  SEAT_NOT_MATCH_SHOWTIME: 'Seat does not match the showtime information',
+  SEAT_IS_ALREADY_BOOKED: 'Seat is already booked',
+} as const;
+
+export const COMMENTS_MESSAGES = {
+  GET_COMMENTS_SUCCESS: 'Get all comments success',
+  CONTENT_MUST_BE_A_STRING: 'Content must be a string',
+  COMMENT_IS_REQUIRED: 'Content is required',
+  POST_COMMENT_SUCCESS: 'Post comment success',
+  DELETE_COMMENT_SUCCESS: 'Delete comment success',
+  COMMENT_NOT_FOUND: 'Comment not found',
+} as const;
+
+export const LIKES_MESSAGES = {
+  UNLIKE_MOVIE_SUCCESS: 'Unlike movie success',
+  LIKE_MOVIE_SUCCESS: 'Like movie success',
+} as const;
+
+export const REFRESH_MESSAGE = {
+  REFRESH_TOKEN_NOT_FOUND_OR_ALREADY_USED:
+    'Refresh token not found or already used',
+} as const;
+
+export const COMMON_MESSAGES = {
+  IMAGE_IS_NOT_VALID: 'Image is not valid',
+  INTERNAL_SERVER_ERROR: 'Internal server error',
 } as const;

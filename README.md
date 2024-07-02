@@ -1,73 +1,128 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Movie API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Tổng quan
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Movie API là một API để quản lý dữ liệu liên quan đến phim, bao gồm lịch chiếu, quản lý phim, đặt vé và quản lý thông tin người dùng. API này được xây dựng với NestJS và Prisma, cơ sở dữ liệu MySQL.
 
-## Description
+## Công nghệ sử dụng
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [NestJS](https://nestjs.com/)
+- [Prisma](https://www.prisma.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express](https://expressjs.com/)
+- [MySQL](https://www.mysql.com/)
 
-## Installation
+## Điều Kiện Tiên Quyết
+
+Các gói cài đặt để chạy dự án:
 
 ```bash
-$ yarn install
+- Node.js >= 20.11.1
+- yarn >= 1.22.19
+- Docker >= 20.10.21
 ```
 
-## Running the app
+## Cài đặt
 
-```bash
-# development
-$ yarn run start
+1. Clone repository:
 
-# watch mode
-$ yarn run start:dev
+   ```sh
+   git clone https://github.com/phannguyenminhphat1/Capstone-Movie
+   cd capstone-movie
+   ```
 
-# production mode
-$ yarn run start:prod
+2. Cài đặt các dependencies:
+
+   ```sh
+   yarn install
+   ```
+
+3. Cấu hình môi trường:
+
+   - Tạo file `.env` và cấu hình các biến môi trường cần thiết.
+
+4. Chạy ứng dụng:
+   ```sh
+   yarn start:dev
+   ```
+
+## Test API
+
+Sử dụng Postman để test các endpoints của API. Bạn có thể import Postman của tôi bằng cách sử dụng file `postman_collection.json` tôi cung cấp sau đây
+
+```sh
+   file postman nha chế
 ```
 
-## Test
+1. Mở Postman.
+2. Chọn `Import` và chọn file `postman_collection.json`.
+3. Thực hiện các request.
 
-```bash
-# unit tests
-$ yarn run test
+## Cách sử dụng
 
-# e2e tests
-$ yarn run test:e2e
+**Quản lý người dùng:**
 
-# test coverage
-$ yarn run test:cov
-```
+|              **Path**              | **Method** |           **Description**           | **Param** |      **Query**       | **Authorization** |                **Request Body**                |
+| :--------------------------------: | :--------: | :---------------------------------: | :-------: | :------------------: | :---------------: | :--------------------------------------------: |
+|        /api/users/register         |    POST    |               Đăng ký               |     x     |          x           |         x         |       account,password,name,phone,email        |
+|          /api/users/login          |    POST    |              Đăng nhập              |     x     |          x           |         x         |                account,password                |
+|         /api/users/logout          |    POST    |              Đăng xuất              |     x     |          x           |   access_token    |                  refreshToken                  |
+|      /api/users/refresh-token      |    POST    |            Refresh Token            |     x     |          x           |   access_token    |                  refreshToken                  |
+|     /api/users/forgot-password     |    POST    |            Quên mật khẩu            |     x     |          x           |         x         |                     email                      |
+|  /api/users/forgot-password-code   |    POST    |     Xác minh code quên mật khẩu     |     x     |          x           |         x         |                     codeId                     |
+|     /api/users/reset-password      |    POST    |          Đặt lại mật khẩu           |     x     |          x           |         x         |                    password                    |
+|      /api/users/upload-avatar      |    POST    |          Tải lên hình ảnh           |     x     |          x           |   access_token    |                     avatar                     |
+|        /api/users/update-me        |   PATCH    |            Cập nhật tôi             |     x     |          x           |   access_token    |                     avatar                     |
+|     /api/users/get-user-roles      |    GET     |    Lấy danh sách loại người dùng    |     x     |          x           |         x         |                       x                        |
+|        /api/users/get-users        |    GET     |      Lấy danh sách người dùng       |     x     |          x           |         x         |                       x                        |
+|  /api/users/get-users-pagination   |    GET     | Lấy danh sách người dùng phân trang |     x     | page,limit,searchKey |         x         |                       x                        |
+|      /api/users/search-users       |    GET     |              Tìm kiếm               |     x     |      searchKey       |         x         |                       x                        |
+| /api/users/search-users-pagination |    GET     |   Tìm kiếm người dùng phân trang    |     x     | page,limit,searchKey |         x         |                       x                        |
+|       /api/users/get-me-info       |    GET     |        Lấy thông tin cá nhân        |     x     |          x           |   access_token    |                       x                        |
+|      /api/users/get-user-info      |    GET     |      Lấy thông tin người dùng       |  account  |          x           |   access_token    |                       x                        |
+|       /api/users/create-user       |    POST    |         Tạo mới người dùng          |     x     |          x           |   access_token    |     account,name,password,phone,role,email     |
+|       /api/users/update-user       |   PATCH    |         Cập nhật người dùng         |  account  |          x           |   access_token    | account,name,password,phone,role,email,deleted |
+|       /api/users/delete-user       |   PATCH    |           Xóa người dùng            |  account  |          x           |   access_token    |                       x                        |
+|       /api/users/delete-user       |   DELETE   |           Xóa người dùng            |  account  |          x           |   access_token    |                       x                        |
 
-## Support
+**Quản lý phim:**
+| **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
+|:---------------------------------:|:----------:|:-----------------------------:|:---------:|:---------------------------------:|:-----------------:|:-------------------------------------------------------------------------------:|
+| /api/movies/get-banners | GET | Lấy danh sách banner | x | x | x | x |
+| /api/movies/get-movies | GET | Lấy danh sách phim | x | x | x | x |
+| /api/movies/get-movies-pagination | GET | Lấy danh sách phim phân trang | x | limit,page,name | x | x |
+| /api/movies/get-movies-by-date | GET | Lấy danh sách phim theo ngày | x | limit,page,name,startDate,endDate | x | x |
+| /api/movies/get-movie-info | GET | Lấy thông tin phim | movieId | x | x | x |
+| /api/movies/create-movie | POST | Tạo phim mới | x | x | access_token | name,trailer,desc,releaseDate,rate,hot,commingSoon,showingNow,image |
+| /api/movies/upload-image | POST | Tải lên hình ảnh | x | x | access_token | image |
+| /api/movies/update-movie | PATCH | Cập nhật phim | movieId | x | access_token | name,trailer,desc,realeaseDate,rate,hot,commingSoon,showingNow,imageUrl,deleted |
+| /api/movies/delete-movie | PATCH | Xóa phim | movieId | x | access_token | x |
+| /api/movies/delete-movie | DELETE | Xóa phim | movieId | x | access_token | x |
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Quản lý rạp:**
+| **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
+|:---------------------------------------------:|:----------:|:------------------------------------------:|:---------:|:---------------:|:-----------------:|:-------------------------------------------------:|
+| /api/theates/get-theater-systems | GET | Lấy danh sách hệ thống rạp | x | x | x | x |
+| /api/theaters/get-theater-complex | GET | Lấy danh sách cụm rạp | x | theaterSystemID | x | x |
+| /api/theaters/get-showtimes-by-theater-system | GET | Lấy danh sách lịch chiếu theo hệ thống rạp | x | theaterSystemID | x | x |
+| /api/theaters/get-showtimes-by-movie | GET | Lấy danh sách lịch chiếu theo phim | x | movieId | x | x |
+| /api/theaters/create-showtimes | POST | Tạo lịch chiếu | x | x | access_token | movieId,movieTheaterId,movieShowtimes,ticketPrice |
 
-## Stay in touch
+**Quản lý đặt vé:**
+| **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
+|:---------------------------------:|:----------:|:------------------------:|:----------:|:---------:|:-----------------:|:--------------------------:|
+| /api/tickets/get-showtime-tickets | GET | Lấy danh sách lịch chiếu | showtimeID | x | x | x |
+| /api/tickets/booking-tickets | POST | Đặt vé | x | x | access_token | showtimeId,seats[{seatId}] |
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+**Quản lý bình luận:**
+| **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
+|:-------------------------------:|:----------:|:-----------------------:|:---------:|:-----------------:|:-----------------:|:----------------:|
+| /api/comments/get-comments | GET | Lấy danh sách bình luận | x | x | x | x |
+| /api/comments/post-comment | POST | Thêm bình luận | x | x | access_token | movieId,content |
+| /api/comments/delete-comment | DELETE | Xóa bình luận | x | commentId | access_token | x |
+| /api/comments/delete-comment-me | DELETE | Xóa bình luận tôi | x | commentId,movieId | access_token | x |
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+**Quản lý yêu thích:**
+| **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
+|:----------:|:----------:|:-----------------:|:---------:|:---------:|:-----------------:|:----------------:|
+| /api/likes | POST | Thích và bỏ thích | movieId | x | access_token | x |
