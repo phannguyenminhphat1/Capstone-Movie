@@ -18,7 +18,7 @@ Các gói cài đặt để chạy dự án:
 
 ```bash
 - Node.js >= 20.11.1
-- yarn >= 1.22.19
+- Yarn >= 1.22.19
 - Docker >= 20.10.21
 ```
 
@@ -51,7 +51,7 @@ Các gói cài đặt để chạy dự án:
 Sử dụng Postman để test các endpoints của API. Bạn có thể import Postman của tôi bằng cách sử dụng file `postman_collection.json` tôi cung cấp sau đây
 
 ```sh
-   file postman nha chế
+   http://61.14.233.242:8080/swagger#/
 ```
 
 1. Mở Postman.
@@ -126,3 +126,7 @@ Sử dụng Postman để test các endpoints của API. Bạn có thể import 
 | **Path** | **Method** | **Description** | **Param** | **Query** | **Authorization** | **Request Body** |
 |:----------:|:----------:|:-----------------:|:---------:|:---------:|:-----------------:|:----------------:|
 | /api/likes | POST | Thích và bỏ thích | movieId | x | access_token | x |
+
+### Thông tin liên lạc
+
+Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ thêm, vui lòng liên hệ với tôi qua email: _[phannguyenminhphat1@gmail.com](mailto:phannguyenminhphat1@gmail.com)_.
