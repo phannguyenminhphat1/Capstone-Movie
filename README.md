@@ -48,15 +48,21 @@ Các gói cài đặt để chạy dự án:
 
 ## Test API
 
-Sử dụng Postman để test các endpoints của API. Bạn có thể import Postman của tôi bằng cách sử dụng file `postman_collection.json` tôi cung cấp sau đây
+Sử dụng Postman để test các endpoints của API. Bạn có thể import Postman của tôi bằng cách sử dụng file `postman.json` tôi cung cấp sau đây
+
+```sh
+   https://drive.google.com/file/d/1cthey8ZnCI1bADUtbg-1R1JOWfoQ8wBd/view?usp=drive_link
+```
+
+1. Mở Postman.
+2. Chọn `Import` và chọn file `postman.json`.
+3. Thực hiện các request.
+
+hoặc có thể test API thông qua link swagger sau đây:
 
 ```sh
    http://61.14.233.242:8080/swagger#/
 ```
-
-1. Mở Postman.
-2. Chọn `Import` và chọn file `postman_collection.json`.
-3. Thực hiện các request.
 
 ## Cách sử dụng
 
